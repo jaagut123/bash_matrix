@@ -1,3 +1,5 @@
-# bash_matrix
+# Bash scripts Collection
 
-A modified implementation of matrix-like rain of characters based on this code from: https://gist.github.com/khakimov/3558086.
+1. A modified implementation of matrix-like rain of characters based on this code from: https://gist.github.com/khakimov/3558086.
+
+2. Bash prompt like zsh shell in Mac or Kali Linux. 
