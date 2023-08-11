@@ -4,7 +4,7 @@ while :; do
   echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 96 )) ;
   sleep 0.05;
 done|awk '{
-  katakana="゠ァアィイゥウェエォオカガキギクグ	ケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶヷヸヹヺ・ーヽヾヿ"; #96
+  katakana="゠ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶヷヸヹヺ・ーヽヾヿ"; #96
   c=$4;                        # random index
   letter=substr(katakana,c,1);  # random letter
   a[$3]=0;                     # array to store row index
