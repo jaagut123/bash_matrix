@@ -1,12 +1,12 @@
 echo -e "\e[1;40m" ;
 clear ;
 while :; do
-  echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;
+  echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 96 )) ;
   sleep 0.05;
 done|awk '{
-  letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
+  katakana="゠ァアィイゥウェエォオカガキギクグ	ケゲコゴサザシジスズセゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶヷヸヹヺ・ーヽヾヿ"; #96
   c=$4;                        # random index
-  letter=substr(letters,c,1);  # random letter
+  letter=substr(katakana,c,1);  # random letter
   a[$3]=0;                     # array to store row index
   f[$3]=0;                     # flag to store show/erase
   for (x in a) {
