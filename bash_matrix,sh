@@ -1,0 +1,31 @@
+echo -e "\e[1;40m" ;
+clear ;
+while :; do
+  echo $LINES $COLUMNS $(( $RANDOM % $COLUMNS)) $(( $RANDOM % 72 )) ;
+  sleep 0.05;
+done|awk '{
+  letters="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()";
+  c=$4;                        # random index
+  letter=substr(letters,c,1);  # random letter
+  a[$3]=0;                     # array to store row index
+  f[$3]=0;                     # flag to store show/erase
+  for (x in a) {
+    o=a[x];                    # get previous
+    a[x]=a[x]+1;               # increment previous and store
+    if (f[x] == 0) {
+      printf "\033[%s;%sH\033[2;32m%s",o,x,letter;
+      printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x,letter;
+    }
+    else {
+      printf "\033[%s;%sH\033[2;32m%s",o,x," ";
+      printf "\033[%s;%sH\033[1;37m%s\033[0;0H",a[x],x," ";
+    }
+    if (a[x] >= $1) {
+      a[x]=0;
+      if (f[x] == 0)
+        f[x]=1;
+      else
+        f[x]=0;
+    }
+  }
+}'
